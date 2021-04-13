@@ -1,0 +1,9 @@
+
+(format t "new command: fip~&")
+(lish:defcommand fip
+  ()
+  "Listen FIP."
+  (uiop:run-program (list "mpv"
+                          "http://direct.fipradio.fr/live/fip-midfi.mp3")
+                    :output t
+                    :input :interactive))
