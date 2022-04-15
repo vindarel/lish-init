@@ -2,11 +2,11 @@
 (defmacro make-radio-command (name url)
   `(lish:defcommand ,name
       ()
-    "Listen FIP."
-    (uiop:run-program (list "mpv"
-                            ,url)
-                      :output t
-                      :input :interactive)))
+     (uiop:format! t "Listen to ~a…~&" ,name)
+     (uiop:run-program (list "mpv"
+                             ,url)
+                       :output t
+                       :input :interactive)))
 
 (make-radio-command "fip" "http://direct.fipradio.fr/live/fip-midfi.mp3")
 (make-radio-command "culture" "http://direct.franceculture.fr/live/franceculture-midfi.mp3")
